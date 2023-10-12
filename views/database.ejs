@@ -1,0 +1,77 @@
+<!DOCTYPE ejs>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Database</title>
+
+    <script>
+        function showRows(database) {
+            var rows = document.querySelectorAll("#database tr");
+            var count = 1; 
+    
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+    
+                if (row.id === "header") {
+                    row.style.display = "table-row";
+                    continue; 
+                }
+    
+                row.style.display = "none"; 
+    
+                if (row.getAttribute("database") === database || database === "All") {
+                    row.style.display = "table-row";
+    
+                    if (row.getAttribute("database") === database) {
+                        row.cells[0].textContent = count;
+                        count++;
+                    } else if (database === "All") {
+                        row.cells[0].textContent = count;
+                        count++;
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="logo.png" alt="Logo" height="100px">
+            <h2>DASHBOARD</h2>
+            <a href="/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </header>
+
+        <aside class="sidenav">
+            <div class="icon-container">
+                <a href="/dashboard"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
+                <a href="/database"><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                
+            </div>
+        </aside>
+    </div>
+    <div class="table-container">
+        <table id="region" class="table" style="width:85%">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(record => { %>
+                    <tr>
+                        <td><%= record.email %></td>
+                        <td><%= record.password %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    </body>
+</html>

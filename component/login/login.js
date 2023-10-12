@@ -4,6 +4,10 @@ const pool = require('../db/db'); // Import your pool configuration from db.js
 
 const loginRouter = express.Router();
 
+loginRouter.get('/', (req, res) => {
+  res.render('login');
+});
+
 loginRouter.post('/', async (req, res) => {
   const { email, password } = req.body;
 
@@ -34,11 +38,15 @@ loginRouter.post('/', async (req, res) => {
 
     // Authentication successful, set session
     req.session.user = user;
-    res.send('Login successful');
+    res.redirect('/dashboard');
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal server error');
   }
+});
+
+loginRouter.get('/dashboard', (req, res) => {
+  res.render('dashboard');
 });
 
 module.exports = loginRouter;

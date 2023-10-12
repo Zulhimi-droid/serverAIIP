@@ -1,0 +1,35 @@
+<!DOCTYPE ejs>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <link rel="stylesheet" href="design.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="logo.png" alt="Logo" height="100px">
+            <h2>DASHBOARD</h2>
+            <a href="/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </header>
+
+        <aside class="sidenav">
+            <div class="icon-container">
+                <a href="/dashboard"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
+                <a href="/database"><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                
+            </div>
+        </aside>
+    </div>
+    
+    <form action="/login/dashboard" method="get">
+        <!-- Embed Grafana dashboard using iframe -->
+        <div class="dashboard">
+            <iframe src="http://localhost:3000/d/c1406c27-e6cf-4995-9cf5-10ebe0975773/new-dashboard?orgId=1&from=1696885022543&to=1696906622543&theme=light&kiosk=tv&transparent=1" width=100% height=600></iframe>    
+        </div>
+    </form>
+    </body>
+
+</html>
