@@ -116,19 +116,40 @@ select                                              {text-align: justify;
 .icon-container i                                   {font-size: 40px;
                                                      color: #ffffff;}
 .table-container                                    {margin-top: 10%;}
-.reg-control {
-    border: 1px solid #ccc; /* Add a border */
-    background-color: #d0efff;
-    border-radius: 15px; /* Add rounded corners */
-    padding: 10px;
-    margin: 5px;
-    width:30%;
-    box-sizing: border-box;
-    position: relative;
-    text-align: center;
-}
-.reg-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.reg-control                                        {border: 1px solid #ccc;
+                                                     background-color: #d0efff;
+                                                     border-radius: 15px; 
+                                                     padding: 10px;
+                                                     margin: 5px;
+                                                     width:30%;
+                                                     box-sizing: border-box;
+                                                     position: relative;
+                                                     text-align: center;}
+.reg-container                                      {display: flex;
+                                                     flex-direction: column;
+                                                     align-items: center;}
+.overlay                                            {position: fixed;
+                                                     top: 0;
+                                                     left: 0;
+                                                     width: 100%;
+                                                     height: 100%;
+                                                     background: rgba(0, 0, 0, 0.5); 
+                                                     z-index: 999;}
+.popup                                              {position: fixed;
+                                                     top: 50%;
+                                                     left: 50%;
+                                                     transform: translate(-50%, -50%);
+                                                     background: #fff;
+                                                     padding: 20px;
+                                                     border: 1px solid #ccc;
+                                                     border-radius: 15px;
+                                                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                                                     z-index: 1000;}
+.popup a                                            {display: inline-block;
+                                                     padding: 10px 20px;
+                                                     background: #007BFF;
+                                                     color: #fff;
+                                                     text-decoration: none;
+                                                     border-radius: 20px;
+                                                     transition: background 0.3s ease;}
+.popup a:hover                                      {background: #0056b3;}

@@ -27,17 +27,11 @@ registrationRouter.post('/form', async (req, res) => {
 
     await pool.query(query, values);
 
-    // Redirect to the "/success" page using a GET request
-    res.redirect('/');
+    res.redirect('/register?success=true');
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal server error');
   }
-});
-
-// Display the success page
-registrationRouter.get('/', (req, res) => {
-  res.render('login');
 });
 
 module.exports = registrationRouter;

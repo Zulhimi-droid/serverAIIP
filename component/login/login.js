@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const pool = require('../db/db'); // Import your pool configuration from db.js
+const pool = require('../db/db');
 
 const loginRouter = express.Router();
 
@@ -19,17 +19,13 @@ loginRouter.post('/', async (req, res) => {
     const query = 'SELECT * FROM user_details WHERE email = $1';
     const { rows } = await pool.query(query, [email]);
 
-    if (rows.length === 0) {
-      return res.status(401).send('Invalid email');
-    }
-
     const user = rows[0];
 
     // Compare the provided password with the hashed password stored in the database
     const passwordMatch = await bcrypt.compare(password, user.password);
 
-    if (!passwordMatch) {
-      return res.status(401).send('Invalid password');
+    if (rows.length === 0 || !passwordMatch) {
+      return res.status(401).redirect('/login');
     }
 
     // Update the last_login field in the database with the formatted timestamp
@@ -41,7 +37,7 @@ loginRouter.post('/', async (req, res) => {
     res.redirect('/dashboard');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Internal server error');
+    res.status(500).redirect('/login');
   }
 });
 
