@@ -1,0 +1,37 @@
+<!DOCTYPE ejs>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <img src="logo.png" height="105px"><br/><br><br>
+    <h1>REGISTER</h1>
+
+    <form action="/register" method="post">  
+        <div class="reg-container">    
+    		<input type="text" class="reg-control" id="first_name" name="first_name" placeholder="First Name" required>      
+    		<input type="text" class="reg-control" id="last_name" name="last_name" placeholder="Last Name" required>
+            <input type="text" class="reg-control" id="age" name="age" placeholder="Age" required>      
+    		<input type="text" class="reg-control" id="address" name="address" placeholder="Address" required>
+            <input type="text" class="reg-control" id="email" name="email" placeholder="Email" required>      
+    		<input type="password" class="reg-control" id="password" name="password" placeholder="Password" required>
+            <p class="log">Already have an account? <a href="/">Login Here</a></p>
+  		
+
+        <button type="submit" class="css-button">
+            <span class="css-button-icon">
+                <i class="fa fa-arrow-right"></i>
+            </span>
+            <span class="css-button-text">
+                <span>Register</span>
+            </span>
+        </button>
+    </div>
+    </form>
+    
+    </body>
+</html>
