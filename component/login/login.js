@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const pool = require('../../db'); // Import your pool configuration from db.js
+const pool = require('../db/db'); // Import your pool configuration from db.js
 
 const loginRouter = express.Router();
 

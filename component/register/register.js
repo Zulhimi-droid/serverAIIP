@@ -1,5 +1,5 @@
 const express = require('express');
-const pool = require('../../db'); // Import your pool configuration from db.js
+const pool = require('../db/db'); // Import your pool configuration from db.js
 const bcrypt = require('bcrypt');
 
 const registrationRouter = express.Router();
