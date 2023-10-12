@@ -1,8 +1,12 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const nocache = require('nocache');
 const pool = require('../db/db');
 
 const loginRouter = express.Router();
+
+// Add the nocache middleware to prevent caching on sensitive routes
+loginRouter.use(nocache());
 
 loginRouter.get('/', (req, res) => {
   res.render('login');
@@ -41,8 +45,15 @@ loginRouter.post('/', async (req, res) => {
   }
 });
 
-loginRouter.get('/dashboard', (req, res) => {
-  res.render('dashboard');
+// Route for logging out
+loginRouter.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error(err);
+    }
+    // Redirect to a page with no sensitive information (e.g., login page)
+    res.redirect('/login');
+  });
 });
 
 module.exports = loginRouter;
