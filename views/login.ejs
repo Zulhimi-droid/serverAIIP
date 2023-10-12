@@ -6,18 +6,22 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
+
+    <style>
+        body {background-image: url("background_1.png")}
+    </style>
+    
 </head>
 <body>
     <img src="logo.png" height="105px"><br/><br><br>
     <h1>LOGIN</h1><br><br>
-    <h3>Welcome back! Login to have access to the AMAST Image Processing System.</h3><br><br><br>
+    <h3>Welcome back! Login to have access to the AMAST Image Processing System.</h3><br><br>
 
     <form action="/login" method="post">  
         <div class="reg-container">    
-    		<input type="text" class="form-control" id="email" name="email" placeholder="Email" required><br><br><br> 
-  		     
-    		<input type="password" class="form-control" id="password" name="password" placeholder="Password" required><br><br><br>
-         
+    		<input type="text" class="form-control" id="email" name="email" placeholder="Email" required><br>
+    		<input type="password" class="form-control" id="password" name="password" placeholder="Password" required><br><br>
+        
         <button type="submit" class="css-button">
             <span class="css-button-icon">
                 <i class="fa fa-arrow-right"></i>

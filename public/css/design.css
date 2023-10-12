@@ -3,7 +3,6 @@
 
 *,*::after 		 									{box-sizing: border-box;}
 body 			  									{font-family: 'Roboto', sans-serif;
-                                                     background-image: url("background_1.png");
                                                      background-size: cover;
                                                      background-repeat: no-repeat;
                                                      background-position: center center;
@@ -33,10 +32,9 @@ p                                                   {text-align: center;}
 button                                              {background-color: #007bff;
                                                      color: #fff;
                                                      width: 14%;
-                                                     padding: 10px 20px;
+                                                     padding: 5px 20px;
                                                      border: none;
                                                      border-radius: 5px;
-                                                     
                                                      font-size: 1.5rem;
                                                      cursor: pointer;
                                                      position: relative;}
