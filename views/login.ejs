@@ -31,10 +31,35 @@
                 <span>LOGIN</span>
             </span>
         </button>
+
+        <p>Don't have an account? Register <a href="/register" style="text-decoration: none;">here</a></p> 
+
         </div>
+
+        <div id="overlay" class="overlay" style="display: none;"></div>
     </form>
+
+    <div id="fail-popup" class="popup" style="display: none;">
+        <h3>Login Failed!</h3><p>Your email or password is incorrect!<br>Please try again.<br><br><a href='/'>Ok</a></p>
+    </div>
+    <script>
+        // Function to show the success popup and overlay
+        function showFailPopup() {
+            const failPopup = document.getElementById('fail-popup');
+            failPopup.style.display = 'block';
+
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+        }
     
-    <p>Don't have an account? Register <a href="/register" style="text-decoration: none;">here</a></p> 
+        // Check for a success message in the URL (e.g., /register?success=true)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('fail') && urlParams.get('fail') == 'true') {
+            showFailPopup();
+        }
+    </script>
+
+    
     </body>
 </html>
 

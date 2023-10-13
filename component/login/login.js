@@ -1,12 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const nocache = require('nocache');
 const pool = require('../db/db');
 
 const loginRouter = express.Router();
-
-// Add the nocache middleware to prevent caching on sensitive routes
-loginRouter.use(nocache());
 
 loginRouter.get('/', (req, res) => {
   res.render('login');
@@ -29,7 +25,7 @@ loginRouter.post('/', async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (rows.length === 0 || !passwordMatch) {
-      return res.status(401).redirect('/login');
+      return res.status(401).redirect('/login?fail=true');
     }
 
     // Update the last_login field in the database with the formatted timestamp
