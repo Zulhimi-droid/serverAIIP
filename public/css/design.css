@@ -1,8 +1,9 @@
 @charset "ISO-8859-1";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inclusive+Sans&family=Roboto:wght@500&display=swap');
 
 *,*::after 		 									{box-sizing: border-box;}
-body 			  									{font-family: 'Roboto', sans-serif;
+body 			  									{font: 'Muli', sans-serif;
                                                      background-size: cover;
                                                      background-repeat: no-repeat;
                                                      background-position: center center;
@@ -20,9 +21,9 @@ h4    			 									{text-align: center;
                                                      color: white;}
 h1, .h1, h2, .h2, h3, .h3, h4, .h4					{margin-top: 0;
   													 margin-bottom: 0;}
-p                                                   {text-align: center;}
-.form-control                                       {
-                                                     width: 30%;
+p                                                   {font: candara;
+                                                     text-align: center;}
+.form-control                                       {width: 30%;
                                                      line-height: 2.5;
                                                      border: none;
                                                      border-bottom: 2px solid #67696b;

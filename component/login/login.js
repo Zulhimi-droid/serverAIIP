@@ -19,12 +19,18 @@ loginRouter.post('/', async (req, res) => {
     const query = 'SELECT * FROM user_details WHERE email = $1';
     const { rows } = await pool.query(query, [email]);
 
+    if (rows.length === 0) {
+      console.error('User not found');
+      return res.status(401).redirect('/login?fail=true');
+    }
+
     const user = rows[0];
 
     // Compare the provided password with the hashed password stored in the database
     const passwordMatch = await bcrypt.compare(password, user.password);
 
-    if (rows.length === 0 || !passwordMatch) {
+    if (!passwordMatch) {
+      console.error('Password does not match');
       return res.status(401).redirect('/login?fail=true');
     }
 
