@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="design.css">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Database</title>
+    <title>Process</title>
 
     <script>
         function showRows(database) {
@@ -42,7 +42,7 @@
     <div class="container">
         <header class="header">
             <img src="logo.png" alt="Logo" height="100px">
-            <h2>DATABASE</h2>
+            <h2>PROCESS</h2>
             <a href="/login/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
         </header>
 
@@ -60,13 +60,15 @@
                 <tr>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <% data.forEach(record => { %>
                     <tr>
-                        <td><%= record.email %></td>
-                        <td><%= record.password %></td>
+                        <td><%= record.sov %></td>
+                        <td><%= record.date %></td>
+                        <td><a href="/database"><i class="fa fa-times" style="color: red;" aria-hidden="true"></i></a></td>
                     </tr>
                 <% }); %>
             </tbody>
