@@ -39,17 +39,36 @@
         <div id="overlay" class="overlay" style="display: none;"></div>
     </form>
 
+    <div id="not-reg-popup" class="popup" style="display: none;">
+        <h3>Login Failed!</h3><p>The email is not registered.<br>Please try again.<br><br><a href='/'>Ok</a></p>
+    </div>
+
     <div id="fail-popup" class="popup" style="display: none;">
         <h3>Login Failed!</h3><p>Your email or password is incorrect!<br>Please try again.<br><br><a href='/'>Ok</a></p>
     </div>
+    
     <script>
         // Function to show the success popup and overlay
+        function showNotRegPopup() {
+            const notregPopup = document.getElementById('not-reg-popup');
+            notregPopup.style.display = 'block';
+
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+        }
+
         function showFailPopup() {
             const failPopup = document.getElementById('fail-popup');
             failPopup.style.display = 'block';
 
             const overlay = document.getElementById('overlay');
             overlay.style.display = 'block';
+        }
+    
+        // Check for a success message in the URL (e.g., /register?success=true)
+        const urlParam = new URLSearchParams(window.location.search);
+        if (urlParam.has('notreg') && urlParam.get('notreg') == 'true') {
+            showNotRegPopup();
         }
     
         // Check for a success message in the URL (e.g., /register?success=true)

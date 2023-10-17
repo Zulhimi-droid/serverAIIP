@@ -21,7 +21,7 @@ loginRouter.post('/', async (req, res) => {
 
     if (rows.length === 0) {
       console.error('User not found');
-      return res.status(401).redirect('/login?fail=true');
+      return res.status(401).redirect('/login?notreg=true');
     }
 
     const user = rows[0];
