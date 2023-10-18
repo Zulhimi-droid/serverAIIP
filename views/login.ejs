@@ -65,13 +65,11 @@
             overlay.style.display = 'block';
         }
     
-        // Check for a success message in the URL (e.g., /register?success=true)
         const urlParam = new URLSearchParams(window.location.search);
         if (urlParam.has('notreg') && urlParam.get('notreg') == 'true') {
             showNotRegPopup();
         }
     
-        // Check for a success message in the URL (e.g., /register?success=true)
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('fail') && urlParams.get('fail') == 'true') {
             showFailPopup();

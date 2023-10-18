@@ -7,7 +7,7 @@ databaseRouter.get('/', (req, res) => {
 
     // Check if the user is authenticated before rendering the dashboard
     if (req.session.user) {
-        pool.query('SELECT * FROM user_details', (err, result) => {
+        pool.query('SELECT * FROM test_grafana WHERE compliance_status = \'Yes\'', (err, result) => {
             if (!err) {
                 res.render('database', { data: result.rows }); 
             } else {

@@ -58,15 +58,19 @@
         <table id="region" class="table" style="width:85%">
             <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Password</th>
+                    <th>No</th>
+                    <th>Share of Voice</th>
+                    <th>Date</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <% data.forEach(record => { %>
+                <% data.forEach((record, index) => { %>
                     <tr>
-                        <td><%= record.email %></td>
-                        <td><%= record.password %></td>
+                        <td></td>
+                        <td><%= record.sov %></td>
+                        <td><%= record.date %></td>
+                        <td><i class="fa fa-check" style="color: green;" aria-hidden="true"></i></td>
                     </tr>
                 <% }); %>
             </tbody>
@@ -79,5 +83,12 @@
         window.onpopstate = function () {
             history.go(1);
         };
+
+        const tableRows = document.querySelectorAll('tbody tr');
+
+        tableRows.forEach((row, index) => {
+            const noColumn = row.querySelector('td:first-child');
+            noColumn.textContent = index + 1;
+        });
     </script>
 </html>

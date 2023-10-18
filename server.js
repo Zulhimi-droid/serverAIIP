@@ -5,9 +5,9 @@ const session = require('express-session');
 const path = require('path');
 const registerRouter = require('./component/register/register');
 const loginRouter = require('./component/login/login');
-const dashboardRouter = require('./component/dashboard/dashboard'); 
-const databaseRouter = require('./component/database/database'); 
-const imgprocessRouter = require('./component/img_process/img_process'); 
+const dashboardRouter = require('./component/dashboard/dashboard');
+const databaseRouter = require('./component/database/database');
+const imgprocessRouter = require('./component/img_process/img_process');
 
 app.use(express.static('public/css'));
 app.use(express.static('public/img'));

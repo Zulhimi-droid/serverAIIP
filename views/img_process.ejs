@@ -55,31 +55,82 @@
         </aside>
     </div>
     <div class="table-container">
+        <div class="reg-container">
+            <button type="submit" class="css-button">
+                <a href="#" class="delete-record" style="text-decoration: none; color: white;">
+                <span class="css-button-text">
+                    <span>Process</span>
+                </span>
+                <sapn class="=css-button-icon">
+                    <i class="fa fa-refresh"></i>
+                </sapn>
+                </a>
+            </button>
+        </div><br><br>
         <table id="region" class="table" style="width:85%">
             <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Action</th>
+                    <th>No</th>
+                    <th>Share of Voice</th>
+                    <th>Date</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <% data.forEach(record => { %>
-                    <tr>
+                <% data.forEach((record, index) => { %>
+                    <tr data-id="<%= record.id %>">
+                        <td></td>
                         <td><%= record.sov %></td>
                         <td><%= record.date %></td>
-                        <td><a href="/database"><i class="fa fa-times" style="color: red;" aria-hidden="true"></i></a></td>
+                        <td><i class="fa fa-times" style="color: red;" aria-hidden="true"></i></a></td>
                     </tr>
                 <% }); %>
             </tbody>
         </table>
     </div>
-    </body>
-   <script>
+    <script>
         // Disable the back button
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
+
+        const tableRows = document.querySelectorAll('tbody tr');
+
+        tableRows.forEach((row, index) => {
+            const noColumn = row.querySelector('td:first-child');
+            noColumn.textContent = index + 1;
+        });
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add a click event listener to all delete buttons
+            const deleteButtons = document.querySelectorAll(".delete-record");
+            deleteButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    updateDatabase();
+                });
+            });
+    
+            function updateDatabase() {
+                // Send an HTTP request to the '/update' route in your imgprocessRouter
+                fetch('/img_process/update', {
+                    method: "POST",
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Reload the page or update the UI as needed
+                        window.location.reload();
+                    } else {
+                        // Handle errors
+                        console.error("Error updating the database");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+            }
+        });
     </script>
+</body>
 </html>
