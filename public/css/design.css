@@ -178,3 +178,9 @@ select                                                  {text-align: justify;
                                                         .popup p {
                                                             padding: 10px;
                                                         }
+                                                        .dashboard{
+                                                            margin-left: 4%;
+                                                            margin-top: 2.5%;
+                                                            margin-right: -2%;
+                                                            order: none;
+                                                            padding: 10px;}
