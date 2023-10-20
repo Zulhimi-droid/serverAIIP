@@ -8,6 +8,23 @@
     <title>Process</title>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidenav = document.getElementById("sidenav");
+            const sidenavToggle = document.getElementById("sidenav-toggle");
+
+            sidenavToggle.addEventListener("click", function () {
+                sidenav.classList.toggle("expanded");
+            });
+
+            sidenav.addEventListener("mouseenter", function () {
+                sidenav.classList.add("expanded");
+            });
+
+            sidenav.addEventListener("mouseleave", function () {
+                sidenav.classList.remove("expanded");
+            });
+        });
+    
         function showRows(database) {
             var rows = document.querySelectorAll("#database tr");
             var count = 1; 
@@ -43,16 +60,31 @@
         <header class="header">
             <img src="logo.png" alt="Logo" height="100px">
             <h2>PROCESS</h2>
-            <a href="/login/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
         </header>
 
-        <aside class="sidenav">
-            <div class="icon-container">
-                <a href="/dashboard"><i class="fa fa-bar-chart" aria-hidden="true"></i><br>Dashboard</a>
-                <a href="/img_process"><i class="fa fa-cogs" aria-hidden="true"></i><br>Process</a>               
-                <a href="/database"><i class="fa fa-database" aria-hidden="true"></i><br>Database</a>
-            </div>
-        </aside>
+        <iv class="sidenav" id="sidenav">
+            <a href="#" class="sidenav-toggle" id="sidenav-toggle">
+          
+            </a>
+            <a href="/dashboard">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <span class="sidenav-label">Dashboard</span>
+            </a>
+            <a href="/img_process">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                <span class="sidenav-label">Process</span>
+            </a>
+            <a href="/database">
+                <i class="fa fa-database" aria-hidden="true"></i>
+                <span class="sidenav-label">Database</span>
+            </a>
+            </a>
+            <a href="/login/logout">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span class="sidenav-label">Logout</span>
+            </a>
+        </div>
+
     </div>
     <div class="table-container">
         <div class="reg-container">

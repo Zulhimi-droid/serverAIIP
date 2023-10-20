@@ -8,12 +8,12 @@
     <title>Register</title>
 
     <style>
-        body {background-image: url("background_1.png")}
+        body {background-image: url("background_2.png")}
     </style>
 
 </head>
 <body>
-  <img src="logo.png" height="105px"><br/><br><br>
+  <img src="logo.png" height="105px"><br/><br>
   <h1>REGISTER</h1><br><br>
 
   <form action="/register/form" method="post">  
@@ -25,10 +25,7 @@
             <input type="text" class="reg-control" id="email" name="email" placeholder="Email" required>      
             <input type="password" class="reg-control" id="password" name="password" placeholder="Password" required><br><br><br>
 
-        <button type="submit" class="css-button">
-            <span class="css-button-icon">
-                <i class="fa fa-arrow-right"></i>
-            </span>
+        <button type="submit" class="css-button"> 
             <span class="css-button-text">
                 <span>REGISTER<span>
             </span>
@@ -40,26 +37,42 @@
 
         <div id="overlay" class="overlay" style="display: none;"></div>
     </form>
+
+    <!-- HTML code after the success pop-up -->
+    <div id="error-popup" class="popup" style="display: none;">
+        <p>Email already in use</p>
+    </div>
     
     <div id="success-popup" class="popup" style="display: none;">
         <p>Registration successful!<br><br><a href='/'>Login</a></p>
     </div>
     <script>
-        // Function to show the success popup and overlay
-        function showSuccessPopup() {
-            const successPopup = document.getElementById('success-popup');
-            successPopup.style.display = 'block';
+  // Function to show a pop-up and overlay
+  function showPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    popup.style.display = 'block';
 
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
-        }
-    
-        // Check for a success message in the URL (e.g., /register?success=true)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success') && urlParams.get('success') == 'true') {
-            showSuccessPopup();
-        }
-    </script>
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+
+    // Automatically close the pop-up after 3 seconds (adjust the delay as needed)
+    setTimeout(function() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    }, 3000); // 3000 milliseconds (3 seconds)
+  }
+
+  // Check for a message in the URL
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has('success') && urlParams.get('success') === 'true') {
+    // Redirect to the login page with a success message
+    window.location.href = '/login?success=true';
+  } else if (urlParams.has('error') && urlParams.get('error') === 'email-in-use') {
+    showPopup('error-popup');
+  }
+      </script>
+      
 
 </body>
 </html>
