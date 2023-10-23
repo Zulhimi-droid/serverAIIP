@@ -144,6 +144,7 @@ select                                                  {text-align: justify;
                                                         border: none;
                                                         border-radius: 5px;}
 .form__buttons                                          {text-align: center;
+<<<<<<< HEAD
                                                         margin: 0 auto;}
 .popup                                                  {position: fixed;
                                                         margin-top: 15px;
@@ -157,3 +158,29 @@ select                                                  {text-align: justify;
                                                         border-radius: 15px;
                                                         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                                                         z-index: 1000;}
+=======
+                                                        margin: 0 auto;
+                                                        padding: 10px 0 0;  }
+
+                                                        .popup {
+                                                            position: fixed;
+                                                            top: 50px; /* Adjust this value to control the vertical position */
+                                                            margin-left: 1;
+                                                            text-align: center;
+                                                            display: none;
+                                                            background: #0056b3;;
+                                                            color: white;
+                                                            padding: 1px;
+                                                            
+                                                        }
+                                                    
+                                                        .popup p {
+                                                            padding: 10px;
+                                                        }
+                                                        .dashboard{
+                                                            margin-left: 4%;
+                                                            margin-top: 2.5%;
+                                                            margin-right: -2%;
+                                                            order: none;
+                                                            padding: 10px;}
+>>>>>>> e2d01f61fa18619b29711e710cd226f19f84c73d
