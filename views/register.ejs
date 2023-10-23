@@ -13,7 +13,7 @@
 
 </head>
 <body>
-  <img src="logo.png" height="105px"><br/><br>
+  <img src="logo.png" height="105px"><br/><br><br><br><br><br>
   <h1>REGISTER</h1><br><br>
 
   <form action="/register/form" method="post">  
@@ -35,7 +35,6 @@
 
         </div>
 
-        <div id="overlay" class="overlay" style="display: none;"></div>
     </form>
 
     <!-- HTML code after the success pop-up -->
@@ -44,34 +43,9 @@
     </div>
     
     <div id="success-popup" class="popup" style="display: none;">
-        <p>Registration successful!<br><br><a href='/'>Login</a></p>
+        <p>Registration successful!<br><br>Please go back to login page</p>
     </div>
-    <script>
-  // Function to show a pop-up and overlay
-  function showPopup(popupId) {
-    const popup = document.getElementById(popupId);
-    popup.style.display = 'block';
-
-    const overlay = document.getElementById('overlay');
-    overlay.style.display = 'block';
-
-    // Automatically close the pop-up after 3 seconds (adjust the delay as needed)
-    setTimeout(function() {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-    }, 3000); // 3000 milliseconds (3 seconds)
-  }
-
-  // Check for a message in the URL
-  const urlParams = new URLSearchParams(window.location.search);
-
-  if (urlParams.has('success') && urlParams.get('success') === 'true') {
-    // Redirect to the login page with a success message
-    window.location.href = '/login?success=true';
-  } else if (urlParams.has('error') && urlParams.get('error') === 'email-in-use') {
-    showPopup('error-popup');
-  }
-      </script>
+    <script src="script/registerpop.js"></script>
       
 
 </body>

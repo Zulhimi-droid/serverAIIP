@@ -13,7 +13,7 @@
     
 </head>
 <body>
-    <img src="logo.png" height="105px"><br/><br><br>
+    <img src="logo.png" height="105px"><br/><br><br><br><br><br><br><br><br>    
     <h1>LOGIN</h1><br><br>
     <h3 style="font-weight: normal;">Welcome back! Login to have access to the AMAST Image Processing System.</h3><br><br>
 
@@ -32,53 +32,17 @@
         <p>Don't have an account? Register <a href="/register">here</a></p> 
 
         </div>
-
-        <div id="overlay" class="overlay" style="display: none;"></div>
     </form>
 
     <div id="not-reg-popup" class="popup" style="display: none;">
-        <h3>Login Failed!</h3><p>The email is not registered.<br>Please try again.<br><br><a href='/'>Ok</a></p>
+        <p>The email is not registered.<br>Please try again.<br></p>
     </div>
 
     <div id="fail-popup" class="popup" style="display: none;">
-        <h3>Login Failed!</h3><p>Your email or password is incorrect!<br>Please try again.<br><br><a href='/'>Ok</a></p>
+        <p>Your email or password is incorrect!<br>Please try again.<br></p>
     </div>
     
-    <script>
-        // Function to show the success popup and overlay
-        function showNotRegPopup() {
-            const notregPopup = document.getElementById('not-reg-popup');
-            notregPopup.style.display = 'block';
-
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
-        }
-
-        function showFailPopup() {
-            const failPopup = document.getElementById('fail-popup');
-            failPopup.style.display = 'block';
-
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
-        }
-    
-        const urlParam = new URLSearchParams(window.location.search);
-        if (urlParam.has('notreg') && urlParam.get('notreg') == 'true') {
-            showNotRegPopup();
-        }
-    
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('fail') && urlParams.get('fail') == 'true') {
-            showFailPopup();
-        }
-    </script>
-    <script>
-        // Disable the back button
-        history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-            history.pushState(null, null, location.href); // Revert the URL to the current page
-        };
-    </script>    
+    <script src="script/loginpop.js"></script>    
     
     </body>
 </html>

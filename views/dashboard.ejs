@@ -1,41 +1,22 @@
-<!DOCTYPE ejs>
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Dashboard</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sidenav = document.getElementById("sidenav");
-            const sidenavToggle = document.getElementById("sidenav-toggle");
-
-            sidenavToggle.addEventListener("click", function () {
-                sidenav.classList.toggle("expanded");
-            });
-
-            sidenav.addEventListener("mouseenter", function () {
-                sidenav.classList.add("expanded");
-            });
-
-            sidenav.addEventListener("mouseleave", function () {
-                sidenav.classList.remove("expanded");
-            });
-        });
-    </script>    
 </head>
+
 <body>
     <div class="container">
         <header class="header">
             <img src="logo.png" alt="Logo" height="100px">
             <h2>DASHBOARD</h2>
         </header>
-
-        <iv class="sidenav" id="sidenav">
-            <a href="#" class="sidenav-toggle" id="sidenav-toggle">
-          
-            </a>
+        <div class="sidenav" id="sidenav">
+            <a href="#" class="sidenav-toggle" id="sidenav-toggle"></a>
             <a href="/dashboard">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 <span class="sidenav-label">Dashboard</span>
@@ -48,27 +29,24 @@
                 <i class="fa fa-database" aria-hidden="true"></i>
                 <span class="sidenav-label">Database</span>
             </a>
-            </a>
             <a href="/login/logout">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                 <span class="sidenav-label">Logout</span>
             </a>
         </div>
+        <div class="content" id="content">
+            <form action="/login/dashboard" method="get">
+                <!-- Embed Grafana dashboard using iframe -->
+                <div class="dashboard">
+                    <iframe id="dashboard-iframe" src="http://47.250.10.195:3000/d/c1406c27-e6cf-4995-9cf5-10ebe0975773/dashboard1?orgId=1&var-brand=pepsi&var-brand=milo&from=1698009614111&to=1698031214111&theme=light&kiosk=tv&transparent=1" width="100%" height="600"></iframe>
 
-    </div>
-    
-    <form action="/login/dashboard" method="get">
-        <!-- Embed Grafana dashboard using iframe -->
-        <div class="dashboard">
-            <iframe src="http://localhost:3000/d/c1406c27-e6cf-4995-9cf5-10ebe0975773/new-dashboard?orgId=1&from=1696885022543&to=1696906622543&theme=light&kiosk=tv&transparent=1" width=100% height=600></iframe>    
+                </div>
+            </form>
         </div>
-    </form>
-    </body>
-    <script>
-        // Disable the back button
-        history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-            history.go(1);
-        };
-    </script>
+    </div>
+
+    <script src="script/sidenav.js"></script>
+    <!-- You included "script/backbutton.js" twice in your original code, so I've removed the duplicate. -->
+</body>
+
 </html>
